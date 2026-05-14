@@ -17,7 +17,7 @@ brew install CrashBytes/tap/pipemason
 | `pipemason` | Local runner for the [pipemason](https://pipemason.com) development pipeline. Compiled, code-signed and notarized binary. macOS arm64/x64 and Linux arm64/x64. |
 
 Windows users: Homebrew doesn't ship Windows binaries. Use the `.exe`
-attached to each [GitHub Release](https://github.com/CrashBytes/pipemason/releases),
+attached to each [release on the public binary mirror](https://github.com/CrashBytes/pipemason-binaries/releases),
 or the one-liner installer documented at [pipemason.com](https://pipemason.com).
 
 ## How updates happen
