@@ -42,16 +42,16 @@ class Pipemason < Formula
 
   def caveats
     <<~EOS
-      Two more steps to your first run:
+      Three steps to your first run:
 
-        1. Pair this machine to your account:
+        1. Create an account (14-day free trial, no charge until day 15):
+             https://pipemason.com
+
+        2. Pair this machine to your account:
              pipemason login
 
-        2. From inside any git repo, kick off a run:
+        3. From inside any git repo, kick off a run:
              pipemason start "add a /version endpoint"
-
-      Don't have an account yet? Sign up at https://pipemason.com
-      (14-day free trial, no charge until day 15).
 
       Watch runs live at https://pipemason.com/dashboard.
     EOS
