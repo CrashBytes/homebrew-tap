@@ -39,13 +39,15 @@ jobs:
       - run: brew test-bot --only-cleanup-before
 
       - name: brew style
-        run: brew style --tap CrashBytes/tap
+        # Modern brew takes the tap name as a positional arg; the old
+        # `--tap` flag was removed and errors with "invalid option".
+        run: brew style CrashBytes/tap
 
       - name: brew audit (strict, online)
         # `--online` makes the audit actually fetch the release URLs to
         # confirm they resolve + the SHAs match. Catches a stale formula
         # before users do.
-        run: brew audit --strict --online --tap CrashBytes/tap
+        run: brew audit --strict --online --tap=CrashBytes/tap
 
       - name: brew install + test
         run: |
