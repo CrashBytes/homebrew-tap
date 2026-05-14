@@ -1,0 +1,53 @@
+name: audit
+
+# Runs Homebrew's own linters against the tap on every push + PR. Catches
+# typos in the formula, missing test blocks, broken URLs, or SHA drift
+# before a user hits `brew install` and sees a stack trace.
+#
+# `brew test-bot` is the canonical entry point Homebrew uses for its own
+# core repo; it composes `brew audit`, `brew style`, and `brew test`.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test-bot:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-14]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: set up Homebrew
+        id: setup-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: cache Homebrew Bundler RubyGems
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.setup-homebrew.outputs.gems-path }}
+          key: ${{ runner.os }}-rubygems-${{ steps.setup-homebrew.outputs.gems-hash }}
+          restore-keys: ${{ runner.os }}-rubygems-
+
+      - run: brew test-bot --only-cleanup-before
+
+      - name: brew style
+        run: brew style --tap CrashBytes/tap
+
+      - name: brew audit (strict, online)
+        # `--online` makes the audit actually fetch the release URLs to
+        # confirm they resolve + the SHAs match. Catches a stale formula
+        # before users do.
+        run: brew audit --strict --online --tap CrashBytes/tap
+
+      - name: brew install + test
+        run: |
+          brew install --formula --verbose --debug CrashBytes/tap/pipemason
+          brew test --verbose CrashBytes/tap/pipemason
