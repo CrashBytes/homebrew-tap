@@ -6,28 +6,28 @@
 class Pipemason < Formula
   desc "Local runner for the pipemason development pipeline"
   homepage "https://pipemason.com"
-  version "0.2.0"
+  version "0.3.0"
   license :cannot_represent
 
   on_macos do
     on_arm do
-      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.2.0/pipemason-darwin-arm64"
-      sha256 "f250de4ead9c810190011d4aaa151b199a048d2bef06c8dc54fd67b1c2f93701"
+      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.3.0/pipemason-darwin-arm64"
+      sha256 "36052ceba6b56f58b5ffe745c20b5a7ae0beec4d83b00d7e87efde728e6740f9"
     end
     on_intel do
-      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.2.0/pipemason-darwin-x64"
-      sha256 "95243f1102fd05384f0dd244b9ea829da0e82cba01815c24a0b73ea1013518dd"
+      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.3.0/pipemason-darwin-x64"
+      sha256 "7ef8ed6c032569fc68cc1430c13a3dd2d1708249b13abb8eb34aa27e2366b9c6"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.2.0/pipemason-linux-arm64"
-      sha256 "57c3a152b6ad7fc90d0a85ed1961924e9e423bc9c3d4867bbe20af16f6333159"
+      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.3.0/pipemason-linux-arm64"
+      sha256 "cefb804106085a48a137115562d7e45fe931e3a791e2756abcb9a0fec61de64e"
     end
     on_intel do
-      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.2.0/pipemason-linux-x64"
-      sha256 "540155b9c8365c196fc5deeb370d27dfd4654646f1c15a7676f66bdb4bcc8f73"
+      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.3.0/pipemason-linux-x64"
+      sha256 "8f72a6040f8654a6356bd8d4c5c8dfaefadb3c253320171d0596545e69a95cb8"
     end
   end
 
@@ -39,7 +39,7 @@ class Pipemason < Formula
 
   def caveats
     <<~CAVEATS
-      Three steps to your first run:
+      You're installed. Three steps to your first run:
 
         1. Create an account (14-day free trial, no charge until day 15):
              https://pipemason.com
@@ -50,7 +50,11 @@ class Pipemason < Formula
         3. From inside any git repo, kick off a run:
              pipemason start "add a /version endpoint"
 
-      Watch runs live at https://pipemason.com/dashboard.
+           Or use the interactive walkthrough (recommended for first-timers):
+             pipemason setup
+
+      Docs: https://pipemason.com/onboarding
+      Dashboard: https://pipemason.com/dashboard
     CAVEATS
   end
 
