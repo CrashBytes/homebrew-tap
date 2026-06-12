@@ -22,6 +22,14 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-14]
     runs-on: ${{ matrix.os }}
+    env:
+      # Homebrew 6.0's build sandbox (sandbox-exec on macOS, bubblewrap on
+      # Linux) can't initialize on GitHub Actions runners — it began failing
+      # `brew install`/`brew test` on every release starting with brew 6.0.x.
+      # The published formula installs fine for real users (verified), so we
+      # disable the sandbox here for the CI smoke check. `brew audit --online`
+      # below still verifies URLs + SHAs.
+      HOMEBREW_NO_SANDBOX: "1"
     steps:
       - uses: actions/checkout@v4
 
@@ -52,6 +60,10 @@ jobs:
         run: brew audit --strict --online --tap=CrashBytes/tap
 
       - name: brew install + test
+        # `brew trust` satisfies Homebrew 6.0's trusted-taps gate — third-party
+        # taps are untrusted by default and `brew install` refuses to load them
+        # otherwise. This is our own tap.
         run: |
-          brew install --formula --verbose --debug CrashBytes/tap/pipemason
+          brew trust CrashBytes/tap
+          brew install --formula --verbose CrashBytes/tap/pipemason
           brew test --verbose CrashBytes/tap/pipemason
