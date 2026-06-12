@@ -28,8 +28,12 @@ jobs:
       # `brew install`/`brew test` on every release starting with brew 6.0.x.
       # The published formula installs fine for real users (verified), so we
       # disable the sandbox here for the CI smoke check. `brew audit --online`
-      # below still verifies URLs + SHAs.
+      # below still verifies URLs + SHAs. brew 6.0 split the control: macOS
+      # honors HOMEBREW_NO_SANDBOX; the Linux bubblewrap sandbox needs the
+      # separate HOMEBREW_NO_SANDBOX_LINUX (GitHub runners lack the unprivileged
+      # user-namespace config rootless bubblewrap requires).
       HOMEBREW_NO_SANDBOX: "1"
+      HOMEBREW_NO_SANDBOX_LINUX: "1"
     steps:
       - uses: actions/checkout@v4
 
