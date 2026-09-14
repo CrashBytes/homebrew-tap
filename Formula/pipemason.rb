@@ -6,28 +6,28 @@
 class Pipemason < Formula
   desc "Local runner for the pipemason development pipeline"
   homepage "https://pipemason.com"
-  version "0.7.27"
+  version "0.7.28"
   license :cannot_represent
 
   on_macos do
     on_arm do
-      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.7.27/pipemason-darwin-arm64"
-      sha256 "9ca4ce762c576caa855cc0c765192acee8dba03a43a20efe9f2ea80f0c38d643"
+      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.7.28/pipemason-darwin-arm64"
+      sha256 "4057e5d936a24104ffb03e45ab3608487e488157819bbee69c26443f4861d290"
     end
     on_intel do
-      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.7.27/pipemason-darwin-x64"
-      sha256 "05ec5add1723f445eaa75ece463075230c5d235609787ac4920a730559621a31"
+      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.7.28/pipemason-darwin-x64"
+      sha256 "4aded737b95e408a6d5f3d45f7ba6e87ffe99034641b215ebe26b9c44cf8efa5"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.7.27/pipemason-linux-arm64"
-      sha256 "6dd6da240ab1f8132e7568fabcc044aaedbe672a9fc9efe4ec87e3da61733faa"
+      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.7.28/pipemason-linux-arm64"
+      sha256 "4fe28fee682dfcb8df20190e97482ebcc4d3546ed1a517201f7b883576f30541"
     end
     on_intel do
-      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.7.27/pipemason-linux-x64"
-      sha256 "6ec828cfae0682b40431e5e295fe5ce23bfbb2d75e17f8d5c6b7bd0cbc3cbc0d"
+      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.7.28/pipemason-linux-x64"
+      sha256 "1cbde0cc1aa86779d89b356169f0744888e1cf0bb8e91a37faae6757cb5b371b"
     end
   end
 
