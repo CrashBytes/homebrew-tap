@@ -6,27 +6,28 @@
 class Pipemason < Formula
   desc "Local runner for the pipemason development pipeline"
   homepage "https://pipemason.com"
+  version "0.7.34"
   license :cannot_represent
 
   on_macos do
     on_arm do
-      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.7.33/pipemason-darwin-arm64"
-      sha256 "4d56500f25a8dffe796a7877ab95583cc139ffe636200e4eacc1e4f96afba0a7"
+      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.7.34/pipemason-darwin-arm64"
+      sha256 "7b2f6defe77ee755891d6331f0a6e528cef3222d338828e009f3b8b3cf6ceacf"
     end
     on_intel do
-      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.7.33/pipemason-darwin-x64"
-      sha256 "d3d9b22e9c48d11ff7d8c601df9175f555cb259674d406bc256c4830cfd71b98"
+      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.7.34/pipemason-darwin-x64"
+      sha256 "a252064cf325f2771462488555a4b73c06ab922323fe3ea607669807c59d17ad"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.7.33/pipemason-linux-arm64"
-      sha256 "3ffd7a0e916ff3486ae47abafce2b31ff04569cb3d5f6664483051fde6a94349"
+      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.7.34/pipemason-linux-arm64"
+      sha256 "2d5cc588818a856cfe867b11b8ed952a3274869f88c04ca517a11dcc6a8d0ca6"
     end
     on_intel do
-      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.7.33/pipemason-linux-x64"
-      sha256 "28fde0202f36643d6e55b6c422a0467850c01db1e4258e5932744c7b1c574045"
+      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.7.34/pipemason-linux-x64"
+      sha256 "fc86f4c32c0465fabf3f205688385c0379c663abd0ab2646db7d8c8e76b96160"
     end
   end
 
@@ -34,7 +35,8 @@ class Pipemason < Formula
     os = OS.mac? ? "darwin" : "linux"
     arch = Hardware::CPU.arm? ? "arm64" : "x64"
     bin.install "pipemason-#{os}-#{arch}" => "pipemason"
-    # The release asset downloads without the execute bit.
+    # The release asset downloads without the execute bit; a reinstall
+    # left /opt/homebrew/bin/pipemason "Permission denied".
     chmod 0755, bin/"pipemason"
   end
 
