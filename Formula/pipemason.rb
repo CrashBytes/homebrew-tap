@@ -34,6 +34,8 @@ class Pipemason < Formula
     os = OS.mac? ? "darwin" : "linux"
     arch = Hardware::CPU.arm? ? "arm64" : "x64"
     bin.install "pipemason-#{os}-#{arch}" => "pipemason"
+    # The release asset downloads without the execute bit.
+    chmod 0755, bin/"pipemason"
   end
 
   def caveats
