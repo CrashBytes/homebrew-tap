@@ -6,7 +6,6 @@
 class Pipemason < Formula
   desc "Local runner for the pipemason development pipeline"
   homepage "https://pipemason.com"
-  version "0.7.41"
   license :cannot_represent
 
   on_macos do
