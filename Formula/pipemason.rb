@@ -11,11 +11,11 @@ class Pipemason < Formula
   on_macos do
     on_arm do
       url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.7.127/pipemason-darwin-arm64"
-      sha256 "cac22211702f18a8dafc9bf93a66e370d05f98641f070ebcaa683ee23ffa4e61"
+      sha256 "e3570c44acf780e4c480b90f87342d35d133c5b1bcfca0cef51e11add6e7a16e"
     end
     on_intel do
       url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.7.127/pipemason-darwin-x64"
-      sha256 "e7f838ac7d4676dc186b9285826602581b41876605d5296c5e57588ea35edfd4"
+      sha256 "a171c12d70c8beb8603e75dca72308dd5cac70460ba1e389f7f08df21fe8d097"
     end
   end
 
