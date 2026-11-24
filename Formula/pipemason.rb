@@ -10,23 +10,23 @@ class Pipemason < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.7.156/pipemason-darwin-arm64"
-      sha256 "8279ca67fc21880d01010615c32039a6c6f16d844d35f369a88d1fd1591c6772"
+      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.7.157/pipemason-darwin-arm64"
+      sha256 "1ca302e59562685f5b8a6ca48444f6ede42b563e2be3fc2304b82c86c81ab8d2"
     end
     on_intel do
-      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.7.156/pipemason-darwin-x64"
-      sha256 "4f42004376b0a6148e8e6093cf733c44440b9b4f1d9ab10245e4c5e7acebaad2"
+      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.7.157/pipemason-darwin-x64"
+      sha256 "f7c154e8ef23d26735e9cfa12f3412da1216609c730bc560c4d521eb07f249b0"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.7.156/pipemason-linux-arm64"
-      sha256 "4c6d5ee1dec76c9856425de0e88819b48d8611808077f4770b330ca223866022"
+      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.7.157/pipemason-linux-arm64"
+      sha256 "687603951844faf712dd81e24de6f3ce18809ea03788c9999fb6381fbacb07c3"
     end
     on_intel do
-      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.7.156/pipemason-linux-x64"
-      sha256 "4710c3ea95fdb0ed99de7a5becac7e6f94ac1d4f7c2e786599ac6986093b26e4"
+      url "https://github.com/CrashBytes/pipemason-binaries/releases/download/v0.7.157/pipemason-linux-x64"
+      sha256 "eeabfc7d4844b123c1ac7840f7fc5e4c9e9fc39f9a2ab0dfa0a8212012f6476e"
     end
   end
 
